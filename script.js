@@ -1,7 +1,9 @@
-const page1 = document.getElementById("page1");
-const page2 = document.getElementById("page2");
-const page3 = document.getElementById("page3");
-const page4 = document.getElementById("page4");
+const pages = {
+    page1: document.getElementById("page1"),
+    page2: document.getElementById("page2"),
+    page3: document.getElementById("page3"),
+    page4: document.getElementById("page4")
+};
 
 const readyBtn = document.getElementById("readyBtn");
 const envelope = document.getElementById("envelope");
@@ -10,45 +12,43 @@ const yesValentine = document.getElementById("yesValentine");
 const noValentine = document.getElementById("noValentine");
 const restartBtn = document.getElementById("restartBtn");
 
-// Page 1
-readyBtn.addEventListener("click", () => {
-    page1.classList.remove("active");
-    page2.classList.add("active");
-});
+// Function to switch pages with fade
+function showPage(current, next) {
+    current.classList.remove("active");
+    setTimeout(() => { // delay to allow fade-out
+        current.style.display = "none";
+        next.style.display = "block";
+        setTimeout(() => next.classList.add("active"), 50);
+    }, 300);
+}
+
+// Page 1 → Page 2
+readyBtn.addEventListener("click", () => showPage(pages.page1, pages.page2));
 
 // Envelope click
-envelope.addEventListener("click", () => {
-    envelope.classList.add("open");
-});
+envelope.addEventListener("click", () => envelope.classList.add("open"));
 
-// Next to Valentine question
-nextBtn.addEventListener("click", () => {
-    page2.classList.remove("active");
-    page3.classList.add("active");
-});
+// Page 2 → Page 3
+nextBtn.addEventListener("click", () => showPage(pages.page2, pages.page3));
 
-// Yes Valentine
-yesValentine.addEventListener("click", () => {
-    page3.classList.remove("active");
-    page4.classList.add("active");
-});
+// Page 3 → Page 4
+yesValentine.addEventListener("click", () => showPage(pages.page3, pages.page4));
 
-// No Valentine - run away effect
+// No button runs away
 noValentine.addEventListener("mouseenter", () => {
     const x = Math.random() * 200 - 100;
     const y = Math.random() * 100 - 50;
     noValentine.style.transform = `translate(${x}px, ${y}px)`;
 });
 
-// Restart
+// Restart → Page 1
 restartBtn.addEventListener("click", () => {
-    page4.classList.remove("active");
     envelope.classList.remove("open");
     noValentine.style.transform = "translate(0,0)";
-    page1.classList.add("active");
+    showPage(pages.page4, pages.page1);
 });
 
-// Petals creation
+// Petals animation
 function createPetals() {
     for (let i = 0; i < 15; i++) {
         let petal = document.createElement("div");
