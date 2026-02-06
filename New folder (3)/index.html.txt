@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal Day 💗</title>
+<link rel="stylesheet" href="love-style.css">
+</head>
+<body>
+
+<!-- Page 1 -->
+<div id="page1" class="page active">
+    <h1>Something special coming right up..🤭💗</h1>
+    <button id="readyBtn">Are u ready for it?</button>
+</div>
+
+<!-- Page 2: Proposal -->
+<div id="page2" class="page">
+    <h2>Click to open 💌</h2>
+
+    <!-- Cute cat image -->
+    <img src="https://i.postimg.cc/y6L5tV9Q/cat-rose.png" alt="Cat holding rose" class="cat-img">
+
+    <div id="envelope" class="envelope">
+        <div class="letter">
+            Dear jaanu 💋,<br><br>
+            Yk you are the most precious thing I own till date and always will..You own my heart baby 🤭💗 I admire the way you care about me..You are enough for me and ilysm (to the moon and back) 🫠✨
+        </div>
+    </div>
+    <button id="nextBtn">Next</button>
+</div>
+
+<!-- Page 3: Valentine question -->
+<div id="page3" class="page">
+    <h2>Will you be my valentine 💘!?</h2>
+    <div class="options">
+        <button id="yesValentine">Yes</button>
+        <button id="noValentine">No</button>
+    </div>
+</div>
+
+<!-- Page 4: Final note -->
+<div id="page4" class="page">
+    <div class="final-note">
+        Thank you so muchh for being my companion for valentine babyy ❤️
+    </div>
+    <button id="restartBtn">Restart</button>
+</div>
+
+<script src="love-script.js" defer></script>
+</body>
+</html>

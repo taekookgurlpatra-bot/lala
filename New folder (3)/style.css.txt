@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: #ffe6f0; /* light pink */
+    color: #ff3366;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Petals animation */
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('https://i.postimg.cc/3x3QZ9LG/petal.png') no-repeat center/contain;
+    top: -50px;
+    animation-name: fall;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.8;
+    }
+}
+
+.page {
+    display: none;
+    padding: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.page.active {
+    display: block;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff6699;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.envelope {
+    width: 250px;
+    height: 150px;
+    margin: 30px auto;
+    background: #ff99cc;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.envelope::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-bottom: 75px solid #ff6699;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+.letter {
+    padding: 10px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.envelope.open::before {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    opacity: 1;
+}
+
+.final-note {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#noValentine {
+    position: relative;
+    transition: all 0.3s ease;
+}
