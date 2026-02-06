@@ -1,12 +1,18 @@
-/* General body */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     text-align: center;
-    background: #ffe6f0;
+    background: #ffe6f0; /* light pink */
     color: #ff3366;
     overflow-x: hidden;
     position: relative;
+}
+
+/* Cat image */
+.cat-img {
+    width: 150px;
+    display: block;
+    margin: 20px auto;
 }
 
 /* Petals animation */
@@ -27,29 +33,9 @@ body {
     100% { transform: translateY(110vh) rotate(360deg); opacity: 0.8; }
 }
 
-/* Cat image */
-.cat-img {
-    width: 150px;
-    display: block;
-    margin: 20px auto;
-}
-
 /* Page styling */
 .page {
-    display: none;
-    opacity: 0;
     padding: 50px;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.8s ease;
-}
-
-.page.active {
-    display: block;
-    opacity: 1;
-    position: relative;
 }
 
 /* Buttons */
