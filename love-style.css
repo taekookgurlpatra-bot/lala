@@ -1,3 +1,4 @@
+/* General body */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -6,13 +7,7 @@ body {
     color: #ff3366;
     overflow-x: hidden;
     position: relative;
-}
-
-/* Cat image */
-.cat-img {
-    width: 150px;
-    display: block;
-    margin: 20px auto;
+    line-height: 1.5;
 }
 
 /* Petals animation */
@@ -33,10 +28,15 @@ body {
     100% { transform: translateY(110vh) rotate(360deg); opacity: 0.8; }
 }
 
-/* Page styling */
-.page {
-    padding: 50px;
+/* Cat image */
+.cat-img {
+    width: 150px;
+    display: block;
+    margin: 20px auto;
 }
+
+/* Pages */
+.page { padding: 50px; }
 
 /* Buttons */
 button {
@@ -56,7 +56,7 @@ button:hover { transform: scale(1.1); }
 /* Envelope */
 .envelope {
     width: 300px;
-    height: 250px;
+    height: 150px;
     margin: 20px auto;
     background: #ff99cc;
     position: relative;
@@ -65,35 +65,38 @@ button:hover { transform: scale(1.1); }
     overflow: hidden;
 }
 
-.envelope::before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
-    border-bottom: 100px solid #ff6699;
+/* Paper coming out */
+.paper {
+    width: 260px;
+    height: 200px;
+    background: #fff;
     position: absolute;
-    top: 0;
-    left: 0;
-    transition: all 0.5s ease;
-}
-
-.letter {
+    bottom: -200px; /* start hidden below envelope */
+    left: 50%;
+    transform: translateX(-50%);
     padding: 15px;
-    font-size: 16px;
-    opacity: 0;
-    max-height: 100%;
-    overflow-y: auto;
-    line-height: 1.5;
     text-align: left;
+    line-height: 1.5;
+    font-size: 16px;
+    border: 2px solid #ff6699;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: bottom 1s ease;
 }
 
-.envelope.open::before { transform: rotateX(180deg); }
-.envelope.open .letter { opacity: 1; }
+/* Paper visible */
+.paper.show { bottom: 0; }
 
-/* Final note */
 .final-note { font-size: 22px; margin-bottom: 20px; }
 
-/* Valentine options */
+/* Options */
 .options { display: flex; justify-content: center; gap: 20px; }
-#noValentine { position: relative; transition: all 0.3s ease; }
+#noValentine, #noReady { position: relative; transition: all 0.3s ease; }
+
+/* Responsive Text */
+@media (max-width: 600px) {
+    h1, h2 { font-size: 18px; }
+    button { font-size: 16px; padding: 12px 25px; }
+    .paper { font-size: 14px; padding: 10px; }
+    .final-note { font-size: 18px; }
+}
